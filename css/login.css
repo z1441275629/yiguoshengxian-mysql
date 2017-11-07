@@ -1,0 +1,199 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+/**
+.login{
+    padding-top:20px;
+    .wrap{
+     
+     .fl{
+         float: left;
+     }
+     .fr{
+        
+         float:right;
+         .right{
+             float:right;
+         }
+         .login-main{
+             width:350px;
+             height:431px;
+             padding: 30px 20px 20px;
+             background-color: #fff;
+             border: 1px solid #e3e6e0;
+             
+             p{
+                 strong{
+                     float: left;
+                     color: #262626;
+                     font: 18px/1 "Microsoft YaHei";
+                 }
+                  span{
+                     float: right;
+                     color: #878787;
+                     a{
+                         color: #008842;
+                     }
+                 }
+             }
+             p{
+                 position: relative;
+                 width: 306px;
+                 box-sizing: border-box;
+                 .input-phone-icon {
+                     position: absolute;
+                     left: 0px;
+                     top: 0px;
+                    background-position: 0 -120px;
+                    width: 40px;
+                    height: 40px;
+                    background-image: url(../img/bg_input.png);
+                    background-repeat: no-repeat;
+                }
+                 .input{
+                    padding-left: 50px;
+                    width: 254px;
+                    height:40px;
+                    line-height: 40px;
+                    
+                   // background-image: url(../img/bg_input.png);
+                    background-repeat: no-repeat;
+                 }
+                 .input-phone{
+                     
+                 }
+             }
+            
+         }
+     }   
+    }
+}
+*/
+.logo {
+  width: 100%;
+  background: #e0e0e0;
+  height: 70px; }
+  .logo .wrap {
+    width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    background: #e0e0e0; }
+    .logo .wrap a {
+      display: inline-block;
+      margin-top: 10px;
+      width: 145px;
+      height: 50px;
+      line-height: 70px;
+      background: url(../img/logo.png) no-repeat 0 0; }
+    .logo .wrap span {
+      font-size: 28px;
+      color: #008842;
+      position: relative;
+      left: 100px;
+      top: -15px;
+      font-weight: bolder; }
+
+.wrap {
+  width: 100%;
+  background: #fff; }
+
+.login {
+  padding: 30px 50px 20px 0px;
+  width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden; }
+  .login .fl {
+    float: left; }
+  .login .fr {
+    float: right;
+    width: 360px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 20px 10px 10px; }
+    .login .fr form .log-header {
+      overflow: hidden; }
+      .login .fr form .log-header span {
+        float: left;
+        font-size: 20px;
+        line-height: 24px; }
+      .login .fr form .log-header b {
+        float: right;
+        font-weight: normal; }
+    .login .fr form p {
+      margin-bottom: 20px; }
+    .login .fr form .name {
+      border: 1px solid #ccc;
+      width: 304px;
+      height: 38px;
+      background: url(../img/bg_input.png) no-repeat 0px -120px; }
+      .login .fr form .name input {
+        width: 254px;
+        height: 38px;
+        line-height: 38px;
+        padding-left: 50px;
+        background: none;
+        box-shadow: none;
+        border: none; }
+    .login .fr form .pass {
+      border: 1px solid #ccc;
+      width: 304px;
+      height: 38px;
+      background: url(../img/bg_input.png) no-repeat 0px -180px; }
+      .login .fr form .pass input {
+        width: 254px;
+        height: 38px;
+        line-height: 38px;
+        padding-left: 50px;
+        background: none;
+        box-shadow: none;
+        border: none; }
+    .login .fr form .yzm {
+      display: inline-block;
+      border: 1px solid #ccc;
+      width: 200px;
+      height: 38px;
+      background: url(../img/bg_input.png) no-repeat 0px -180px; }
+      .login .fr form .yzm input {
+        width: 150px;
+        height: 38px;
+        line-height: 38px;
+        padding-left: 50px;
+        background: none;
+        box-shadow: none;
+        border: none; }
+    .login .fr form .check {
+      overflow: hidden; }
+      .login .fr form .check input {
+        float: left;
+        width: 16px;
+        height: 16px;
+        margin-top: 0px; }
+      .login .fr form .check span {
+        float: left; }
+      .login .fr form .check a {
+        float: right; }
+    .login .fr form .submit {
+      width: 100%; }
+      .login .fr form .submit input {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        height: 50px;
+        background: #008842;
+        color: #fff;
+        font-size: 18px;
+        text-align: center; }
+    .login .fr form .otherPath a i {
+      width: 88px;
+      height: 20px;
+      margin-right: 20px;
+      display: inline-block;
+      background: url(../img/bg_login.png) no-repeat -60px -200px; }
+    .login .fr form .otherPath a:nth-child(2) i {
+      background: url(../img/bg_login.png) no-repeat -160px -200px; }
+    .login .fr form .otherPath a:nth-child(3) i {
+      background: url(../img/bg_login.png) no-repeat -260px -200px; }
+
+/*# sourceMappingURL=login.css.map */

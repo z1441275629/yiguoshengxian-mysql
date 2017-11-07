@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		商品编号：<input type="text" id="goodsId" /><br />
+		商 品 名：<input type="text" id="goodsName" /><br />
+		商品描述：<input type="text" id="descript" /><br />
+		商品单价：<input type="text" id="goodsPrice" /><br />
+		购买数量：<input type="text" id="goodsCount" /><br />
+		商品规格：<input type="text" id="goodsGuige" /><br />
+		商品图片：<input type="text" id="goodsImg" /><br />
+		备用1：<input type="text" id="beiyong1" /><br />
+		备用2：<input type="text" id="beiyong2" /><br />
+		备用3：<input type="text" id="beiyong3" /><br />
+		备用4：<input type="text" id="beiyong4" /><br />
+		备用5：<input type="text" id="beiyong5" /><br />
+		<input type="button" value="录入商品" id="addGood" /><br />
+	</body>
+</html>
+<script src="../js/ajaxTools.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	function getId(id){
+		return document.getElementById(id);
+	}
+	//注册商品编号
+	var goodsId=getId("goodsId");
+	goodsId.onfocus=function(){
+		goodsId.flag=0;//自定义属性，判断商品编号是否被占用
+		goodsId.style.color="black";
+		goodsId.onblur=function(){
+			if(goodsId.value==""){
+				alert("请输入商品编号，例如：001");
+				//goodsId.focused=true;
+			}else{
+				console.log(goodsId.value);
+				my_ajax({
+					url:"../PHP/regBianhao.php",
+					sendContent:"goodsId="+goodsId.value,
+					func:function(str){
+						//console.log("编号存入状态："+str);
+						if(str==0){
+							console.log("此编号没有被使用");
+						}else{
+							console.log("此编号已被注册");
+							goodsId.style.color="red";
+							alert("商品编号已被注册,请更换商品编号");
+							goodsId.flag=1;
+						}
+					}
+				});
+			}
+		}
+	}
+	//添加商品
+	getId("addGood").onclick=function(){
+		//console.log(getId("userName").value+","+getId("userPass").value);
+		if(goodsId.flag==0){
+			my_ajax({
+				url:"../PHP/addGoods.php",
+				sendContent:"goodsName="+getId("goodsName").value+
+					"&goodsId="+getId("goodsId").value+
+					"&goodsCount="+getId("goodsCount").value+
+					"&descript="+getId("descript").value+
+					"&goodsPrice="+getId("goodsPrice").value+
+					"&goodsGuige="+getId("goodsGuige").value+
+					"&goodsImg="+getId("goodsImg").value,
+				method:"get",
+				func:function(str){
+					console.log(str);
+					if(str==1){
+						console.log("添加商品成功");
+					}else{
+						console.log("添加商品失败");
+					}
+				}
+			});
+		}else{
+			alert("商品编号已被注册,请更换商品编号");
+			goodsId.style.color="red";
+		}
+	}
+</script>

@@ -1,0 +1,115 @@
+.logo {
+  width: 100%;
+  background: #e0e0e0;
+  height: 70px; }
+  .logo .wrap {
+    width: 1200px;
+    height: 70px;
+    margin: 0 auto;
+    background: #e0e0e0; }
+    .logo .wrap a {
+      display: inline-block;
+      margin-top: 10px;
+      width: 145px;
+      height: 50px;
+      line-height: 70px;
+      background: url(../img/logo.png) no-repeat 0 0; }
+    .logo .wrap span {
+      font-size: 28px;
+      color: #008842;
+      position: relative;
+      left: 100px;
+      top: -15px;
+      font-weight: bolder; }
+
+.main {
+  width: 100%; }
+  .main .login {
+    background: #F7F8F8;
+    overflow: hidden;
+    height: 50px;
+    width: 1200px;
+    margin: 0 auto; }
+    .main .login p {
+      float: right;
+      margin-top: 30px;
+      width: 180px; }
+      .main .login p a {
+        color: orange; }
+  .main .wrap {
+    background: #fff;
+    width: 1200px;
+    /*height:600px;overflow: hidden;*/
+    box-sizing: border-box;
+    margin: 0 auto; }
+    .main .wrap .register {
+      width: 1200px;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 30px 150px 20px 50px; }
+      .main .wrap .register .fr {
+        float: right; }
+      .main .wrap .register .fl {
+        float: left;
+        box-sizing: border-box;
+        padding: 20px 10px 10px; }
+        .main .wrap .register .fl form table tr {
+          height: 38px;
+          margin-bottom: 20px;
+          display: block; }
+          .main .wrap .register .fl form table tr td:first-of-type {
+            width: 100px;
+            text-align: right;
+            padding-right: 5px; }
+          .main .wrap .register .fl form table tr td:nth-of-type(2) {
+            width: 300px; }
+            .main .wrap .register .fl form table tr td:nth-of-type(2) input {
+              width: 280px;
+              height: 38px;
+              line-height: 38px;
+              box-shadow: none;
+              border: 1px solid #e1e1e1;
+              padding-left: 20px;
+              text-overflow: ellipsis; }
+          .main .wrap .register .fl form table tr td:last-of-type {
+            width: 100px;
+            padding-left: 20px; }
+          .main .wrap .register .fl form table tr td #phone {
+            background: url(../img/bg_input.png) no-repeat 274px -28px; }
+          .main .wrap .register .fl form table tr #pass, .main .wrap .register .fl form table tr #surePass, .main .wrap .register .fl form table tr #yaoQinMa {
+            background: url(../img/bg_input.png) no-repeat 274px -68px; }
+        .main .wrap .register .fl form table .imgYzm #imgYzm {
+          width: 160px; }
+        .main .wrap .register .fl form table .imgYzm img {
+          position: relative;
+          top: 8px; }
+        .main .wrap .register .fl form table .imgYzm a {
+          line-height: 38px; }
+        .main .wrap .register .fl form table .phoneYzm #phoneYzm {
+          width: 160px; }
+        .main .wrap .register .fl form table .phoneYzm #getYzm {
+          padding-left: 0px;
+          line-height: 38px;
+          width: 100px;
+          position: relative;
+          left: 18px;
+          height: 38px;
+          color: #008842;
+          background: #f7f7f7;
+          text-align: center;
+          border: 1px solid #e1e1e1; }
+        .main .wrap .register .fl form table .check {
+          margin-bottom: 0px;
+          padding-left: 10px; }
+          .main .wrap .register .fl form table .check #checked {
+            width: 12px;
+            height: 12px; }
+          .main .wrap .register .fl form table .check a {
+            color: #008842; }
+        .main .wrap .register .fl form table .reg {
+          padding-left: 10px; }
+          .main .wrap .register .fl form table .reg #reg {
+            color: #fff;
+            background: #008842; }
+
+/*# sourceMappingURL=register.css.map */

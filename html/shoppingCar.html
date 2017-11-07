@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/shoppingCar.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/publicFooter.css"/>
+	</head>
+	<body>
+		<div class="shoppingcar">
+			<div class="wrap">
+				<div class="shopHead">
+					<p class="myCar"></p>
+					<span>发送至<b>北京</b></span>
+					<a href="../index.html">继续购物>></a>
+				</div>
+				<table border="1px" cellspacing="0" cellpadding="5px">
+					<tr id="trHead">
+						<th><input type="checkbox" id="selectAll" />全选</th>
+						<th>商品图片</th>
+						<th>商品信息</th>
+						<th>悠币</th>
+						<th>单价</th>
+						<th>购买数量</th>
+						<th>合计</th>
+						<th>规格</th>
+						<th>操作</th>
+					</tr>
+					<!--<tr>
+						<td class="check"><input type="checkbox" checked /></td>
+						<td class="img"><img src="../img/login.jpg" alt="" /></td>
+						<td class="descript">这是中秋节的好礼物</td>
+						<td class="youBi">50</td>
+						<td class="price">￥55.88</td>
+						<td class="num">
+							<div>
+								<span class="minus">-</span>
+								<input type="text" class="numInput" value="1"/>
+								<span class="plus">+</span>
+							</div>
+						</td>
+						<td class="sum">￥55.88</td>
+						<td class="specification">2个/份</td>
+						<td class="operate"><a href="###">移入收藏</a><a href="###" class="delete">删除</a></td>
+					</tr>
+					<tr>
+						<td class="check"><input type="checkbox" /></td>
+						<td class="img"><img src="../img/login.jpg" alt="" /></td>
+						<td class="descript">这是中秋节的好礼物</td>
+						<td class="youBi">50</td>
+						<td class="price">￥55.88</td>
+						<td class="num">
+							<div>
+							<span class="minus">-</span>
+							<input type="text" class="numInput" value="1"/>
+							<span class="plus">+</span>
+							</div>
+						</td>
+						<td class="sum">￥55.88</td>
+						<td class="specification">2个/份</td>
+						<td class="operate"><a href="###">移入收藏</a><a href="###" class="delete">删除</a></td>
+					</tr>
+					<tr>
+						<td class="check"><input type="checkbox" /></td>
+						<td class="img"><img src="../img/login.jpg" alt="" /></td>
+						<td class="descript">这是中秋节的好礼物</td>
+						<td class="youBi">50</td>
+						<td class="price">￥55.88</td>
+						<td class="num">
+							<div>
+							<span class="minus">-</span>
+							<input type="text" class="numInput" value="1"/>
+							<span class="plus">+</span>
+							</div>
+						</td>
+						<td class="sum">￥55.88</td>
+						<td class="specification">2个/份</td>
+						<td class="operate"><a href="###">移入收藏</a><a href="###" class="delete">删除</a></td>
+					</tr>-->
+				</table>
+				<div class="carFooter">
+					<div class="fl">
+						<label><input type="checkbox" id="quanxuan" />全选</label>
+						<a href="###" id="deleteSelect">删除选中的商品</a>
+						<a href="###" id="deleteAll">清空购物车</a>
+					</div>
+					<div class="fr">
+						<span>悠币：<b id="youBiNum"></b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总价：<b id="zongjinge"></b></span>
+						<a href="###">去结算</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!------------特惠换购------------>
+		<!--<div class="shopChange">
+			<div class="wrap">
+				<div class="head">
+					<div class="fl">特惠换购</div>
+					<div class="fr"><a href="###">换一批</a></div>
+				</div>
+				<div class="changeList">
+					<ul>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><img src=""/></dt>
+								<dd>
+									<p class="introduce">河南白蜜脆瓜4个750g以上/个</p>
+									<p class="price"><span>￥22.00/份</span><b>￥31.80</b></p>
+									<a href="###">换购</a>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>-->
+		<!-----------------底部---------------------->
+				<!--------footer service---------->
+		<div class="footer_service">
+			<div class="wrap">
+				<ul id="footer_service">
+					<li><b><a href="###">全球精选</a></b><span><a href="###">一站式生鲜购物方案</a></span></li>
+					<li><b><a href="###">多仓直发</a></b><span><a href="###">特有次日达配送服务</a></span></li>
+					<li><b><a href="###">源头直采</a></b><span><a href="###">精选正宗品质好食材</a></span></li>
+					<li><b><a href="###">天天底价</a></b><span><a href="###">会员专属优惠购不停</a></span></li>
+				</ul>
+			</div>
+		</div>
+		<!--------footer------------>
+		<div class="footer">
+			<div class="wrap" id="footer_guide">
+				<dl>
+					<dt>新手指南</dt>
+					<dd>
+						<p><a href="###">账户注册</a></p>
+						<p><a href="###">购物流程</a></p>
+						<p><a href="###">订购方式</a></p>
+						<p><a href="###">悠币说明</a></p>
+						<p><a href="###">会员等级</a></p>
+					</dd>
+				</dl>
+				<dl>
+					<dt>付款方式</dt>
+					<dd>
+						<p><a href="###">支付方式</a>/<a href="###">发票说明</a></p>
+						<p><a href="###">充值说明</a>/<a href="###">储值卡说明</a></p>
+						<p><a href="###">优惠代码</a>/<a href="###">礼品卡说明</a></p>
+						<p><a href="###">卡券购买章程</a></p>
+					</dd>
+				</dl>
+				<dl>
+					<dt>配送方式</dt>
+					<dd>
+						<p><a href="###">配送运费</a></p>
+						<p><a href="###">配送范围</a></p>
+						<p><a href="###">配送时间</a></p>
+					</dd>
+				</dl>
+				<dl>
+					<dt>售后服务</dt>
+					<dd>
+						<p><a href="###">退换货政策</a></p>
+						<p><a href="###">退换货流程</a></p>
+						<p><a href="###">常见问题</a></p>
+						<p><a href="###">投诉与建议</a></p>
+					</dd>
+				</dl>
+				<dl>
+					<dt>关于我们</dt>
+					<dd>
+						<p><a href="###">公司介绍</a></p>
+						<p><a href="###">联系我们</a></p>
+						<p><a href="###">业务合作</a></p>
+						<p><a href="###">诚信举报</a></p>
+						<p><a href="###">人才招聘</a></p>
+						<p><a href="###">友情链接</a></p>
+					</dd>
+				</dl>
+				<p class="service">客服热线 400-000-7788 企业采购或团购，请转2号键咨询周一至周日 9:00-21:00</p>
+				<div class="copyright">
+					<p>所有图片均受著作权保护，未经许可任何单位与个人不得使用、复制、转载、摘编，违者必究法律责任。</p>
+					<p><a href="###">沪ICP备09008015号 </a>Copyright © 2005-2017 <a href="###">上海易果电子商务有限公司</a>版权所有</p>
+					<p>
+						<a href="###"><img src="../img/153685368061665897_121x29.png" alt="" /></a>
+						<a href="###"><img src="../img/2517491005058doc.png" style="width:39px;height:47px;" alt="" /></a>
+						<span><a href="###"><img src="../img/ghs.png" alt="" /></a><a href="###">沪公网安备 31010502000002号</a></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
+<script src="../js/ajaxTools.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/cookieTools.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/shoppingCar.js" type="text/javascript" charset="utf-8"></script>

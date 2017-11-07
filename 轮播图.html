@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.banner{
+				width:100%;
+				height:500px;
+				overflow: hidden;
+				position: relative;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="banner">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+		//传入的_obj包含{imgArr,doudouObj,URLarr,Dom,timeSpace,}
+	function fadeInFadeOut(_obj){
+		var obj={//默认参数设置
+			timeSpace:1000,
+			doudouObj:{
+				width:20,
+				height:20,
+				space:10,
+				bgColor:"#ccc",
+				highBgColor:"red"
+			},
+			transitionTime:"1.5s",
+			transformBig:1.1,//变大的倍率scale（）
+			transformSmall:0.5,//变小的倍率scale（）
+			URLarr:[]	
+		}
+		for(let key in _obj){//传递参数
+			obj[key] = _obj[key]; 
+		}
+		for(let key in obj){//相当于this.width=obj.width
+			this[key] = obj[key];
+		}
+		
+		//全局变量
+		this.timer = null;
+		this.leftBtn = null;
+		this.rightBtn = null;
+		this.imgUl = null;
+		this.doudouUl = null;
+		this.curOrd=0;
+		this.initUI();
+		this.imgs=this.Dom.getElementsByTagName("img");
+		this.lis=this.Dom.getElementsByTagName("li");
+		this.initEvent();
+	}
+	fadeInFadeOut.prototype={
+		//初始化界面//创建页面
+		initUI:function(){
+			this.Dom.style.overflow="hidden";
+			// 创建span
+			this.leftBtn=document.createElement("span");
+			this.leftBtn.style.cssText="display:none;position:absolute;"
+			+"top:50%;margin-top:-25px;left:0px;width:50px;height:50px;text-align:center;"
+			+"z-index:100;border-radius:50%;font-size:40px;font-weight:bolder;"
+			+"background:rgba(0,0,0,0.5);color:white;line-height:50px;";
+			this.leftBtn.innerHTML="<";
+			this.Dom.appendChild(this.leftBtn);
+			this.rightBtn=document.createElement("span");
+			
+			this.rightBtn.style.cssText="display:none;position:absolute;"
+			+"top:50%;margin-top:-25px;right:0px;width:50px;height:50px;text-align:center;"
+			+"z-index:100;border-radius:50%;font-size:40px;font-weight:bolder;"
+			+"background:rgba(0,0,0,0.5);color:white;line-height:50px;";
+			this.rightBtn.innerHTML=">";
+			this.Dom.appendChild(this.rightBtn);
+			//添加图片
+			for(var i=0;i<this.imgArr.length;i++){
+				let oImg=document.createElement("img");
+				oImg.src=this.imgArr[i];
+				oImg.style.cssText="transition:"+this.transitionTime+";position:absolute;left:0px;top:0px;width:100%;height:100%;opacity: 0;";
+				this.Dom.appendChild(oImg);
+			}
+				//给第一个图片设置图明度，让它先显示出来
+			this.Dom.getElementsByTagName("img")[0].style.opacity=1;//让第一张图片显示出来
+			this.curOrd=0;
+			//添加豆豆
+			this.doudouUl=document.createElement("ul");
+			this.doudouUl.style.cssText="position: absolute;z-index:100;bottom: 10px;"
+			+"width:"+this.imgArr.length*(this.doudouObj.width+this.doudouObj.space)+"px;"
+			+"left: 50%;margin-left:"+-1*(this.imgArr.length*(this.doudouObj.width+this.doudouObj.space)/2)+"px;";
+			this.Dom.appendChild(this.doudouUl);
+			for(let i=0;i<this.imgArr.length;i++){
+				let oLi=document.createElement("li");
+				oLi.style.cssText="background: "+this.doudouObj.bgColor+";float:left;border-radius:50%;"
+				+"margin-left:"+this.doudouObj.space+"px;opacity:0.5;"
+				+"width:"+this.doudouObj.width+"px;height:"+this.doudouObj.height+"px;";
+				this.doudouUl.appendChild(oLi);
+			}
+				//给第一个li设置高亮状态
+			this.doudouUl.getElementsByTagName("li")[0].style.background=this.doudouObj.highBgColor;
+		},
+		
+		//向左播
+		toLeft:function(){
+			//改变图片
+			this.curOrd--;
+			if(this.curOrd<0){
+				this.curOrd=this.imgArr.length-1;
+			}
+			//把所有的图片的透明度全设置为0，思路同豆豆li的高亮设置
+			/*for(i=0;i<this.imgs.length;i++){
+				this.imgs[i].style.opacity=0;
+			}*/
+			//move(this.imgs[(this.curOrd+1)%this.imgArr.length],{opacity:0,width:this.Dom.offsetWidth*0.5,height:this.Dom.offsetHeight*0.5});
+			//move(this.imgs[this.curOrd],{opacity:1,width:this.Dom.offsetWidth*1.5,height:this.Dom.offsetHeight*1.5});
+			this.imgs[(this.curOrd+1)%this.imgArr.length].style.transform="scale("+this.transformSmall+")";
+			this.imgs[(this.curOrd+1)%this.imgArr.length].style.opacity=0;
+			
+			this.imgs[this.curOrd].style.transform="scale("+this.transformBig+")";
+			this.imgs[this.curOrd].style.opacity=1;
+			//改变豆豆背景色
+			for(i=0;i<this.imgs.length;i++){
+				this.lis[i].style.background=this.doudouObj.bgColor;
+			}
+			this.lis[this.curOrd].style.background=this.doudouObj.highBgColor;
+		},
+		
+		//向右播
+		toRight:function(){
+			//改变图片
+			this.curOrd++;
+			if(this.curOrd>=this.imgArr.length){
+				this.curOrd=0;
+			}
+			//把所有的图片的透明度全设置为0，思路同豆豆li的高亮设置
+			/*for(i=0;i<this.imgs.length;i++){
+				this.imgs[i].style.opacity=0;
+			}*/
+			let that1=this;
+			//margin-left:"+(-1*oImg.offsetWidth)/2+"+px;
+			for(let i=0;i<this.imgs.length;i++){
+				this.imgs[i].style.left="50%";
+				this.imgs[i].style.marginLeft=(-1*this.imgs[i].offsetWidth)/2+"px";
+			}
+			this.imgs[(this.curOrd+this.imgArr.length-1)%this.imgArr.length].style.transform="scale("+this.transformSmall+")";
+			this.imgs[(this.curOrd+this.imgArr.length-1)%this.imgArr.length].style.opacity=0;
+			
+			this.imgs[this.curOrd].style.transform="scale("+this.transformBig+")";
+			this.imgs[this.curOrd].style.opacity=1;
+			//改变豆豆背景色
+			for(i=0;i<this.imgs.length;i++){
+				this.lis[i].style.background=this.doudouObj.bgColor;
+			}
+			this.lis[this.curOrd].style.background=this.doudouObj.highBgColor;
+		},
+		//跳转至指定页面
+		toSelect:function(aimOrd){
+			//改变图片
+			//move(this.imgs[this.curOrd],{opacity:0});
+			//move(this.imgs[aimOrd],{opacity:1});
+			this.imgs[this.curOrd].style.transform="scale("+this.transformSmall+")";
+			this.imgs[this.curOrd].style.opacity=0;
+			
+			this.imgs[aimOrd].style.transform="scale("+this.transformBig+")";
+			this.imgs[aimOrd].style.opacity=1;
+			this.curOrd=aimOrd;
+			//改变豆豆背景色
+			for(i=0;i<this.imgs.length;i++){
+				this.lis[i].style.background=this.doudouObj.bgColor;
+			}
+			this.lis[this.curOrd].style.background=this.doudouObj.highBgColor;
+			
+		},
+		go:function(){
+			let that2=this;
+			move(that2.imgs[that2.curOrd],{opacity:1,width:that2.Dom.offsetWidth*1.5,height:that2.Dom.offsetHeight*1.5});
+		},
+		//初始化事件
+		initEvent:function(){
+			let obj=this;
+			//左箭头点击
+			this.leftBtn.onclick=function(){
+				obj.toLeft();
+			}
+			
+			//右箭头的点击
+			this.rightBtn.onclick=function(){
+				obj.toRight();
+			}
+				
+			
+			//豆豆的鼠标移入
+			for(let i=0;i<this.lis.length;i++){
+				//this.lis[i].index=i;
+				this.lis[i].onmouseover=function(){
+					obj.toSelect(i);
+				}
+			}
+			
+			
+			//容器的鼠标移入
+			this.Dom.onmouseover=function(){
+				clearInterval(obj.timer);
+				obj.leftBtn.style.display = "block";
+				obj.rightBtn.style.display = "block";
+			}
+			/*this.Dom.onmousemove=function(){
+				clearInterval(obj.timer);
+			}*/
+			
+			//容器的鼠标移出
+			this.Dom.onmouseout=function(){
+				clearInterval(obj.timer);
+				obj.timer=setInterval(function(){obj.toRight();},obj.timeSpace);
+				obj.leftBtn.style.display = "none";
+				obj.rightBtn.style.display = "none";
+			}
+			/**/
+			//页面加载时(自动播放)
+	//？？？		//this.timer=setInterval(obj.toRight,obj.timeSpace);
+	//Uncaught TypeError: Cannot read property 'length' of undefined at toRight (fadeInFadeOut.js:95)
+			clearInterval(obj.timer);
+			obj.timer=setInterval(function(){obj.toRight();},obj.timeSpace);
+			//这样写的话调用的对象是obj,里面的this不会转移，直接写成obj.roRight的话，调用的对象就变成了window,this会转移
+		}
+	}
+	
+	
+	
+	
+		new fadeInFadeOut({
+			imgArr:["img/9288706408260236_500.jpg","img/9288707492487848_500.jpg","img/9288710932505346_500.jpg","img/9288711999726360_500.jpg","img/9288712231232287.jpg"],
+			Dom:document.getElementsByClassName("banner")[0],
+			timeSpace:3000,
+			doudouObj:{
+				width:10,
+				height:10,
+				space:10,
+				bgColor:"red",
+				highBgColor:"blue"
+			},
+			transformBig:1.1,
+			transformSmall:1.2,
+			transitionTime:"1.0s"
+		});
+	
+</script>

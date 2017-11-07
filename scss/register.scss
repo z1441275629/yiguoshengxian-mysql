@@ -1,0 +1,50 @@
+
+.logo{width:100%;background: #e0e0e0;height:70px;
+    .wrap{width: 1200px;height:70px;margin:0 auto;background: #e0e0e0;
+        a{display: inline-block;margin-top:10px;width: 145px;height: 50px;line-height: 70px;background: url(../img/logo.png) no-repeat 0 0;}
+        span{font-size: 28px;color:#008842;position:relative;left:100px;top:-15px;font-weight: bolder;}
+    }
+}
+.main{width: 100%;
+    .login{background: #F7F8F8;overflow: hidden;height:50px;width: 1200px;margin:0 auto;
+        p{float: right;margin-top: 30px;width: 180px;
+            a{color: orange;}
+        }  
+    }
+    .wrap{background: #fff;width: 1200px;/*height:600px;overflow: hidden;*/box-sizing: border-box;margin: 0 auto;
+        .register{width:1200px;box-sizing: border-box;overflow: hidden;padding: 30px 150px 20px 50px;
+            .fr{float: right;}
+            .fl{float:left;box-sizing: border-box;padding:20px 10px 10px;
+               form{
+                   table{
+                        tr{height: 38px;margin-bottom:20px;display: block;
+                            td:first-of-type{width:100px;text-align: right;padding-right:5px;}
+                            td:nth-of-type(2){width:300px;
+                                input{width:280px;height:38px;line-height:38px;box-shadow: none;border: 1px solid #e1e1e1;padding-left:20px;text-overflow: ellipsis;}
+                            }
+                            td:last-of-type{width:100px;padding-left:20px;}
+                            td #phone{background: url(../img/bg_input.png) no-repeat 274px -28px;}
+                            #pass,#surePass,#yaoQinMa{background: url(../img/bg_input.png) no-repeat 274px -68px;}
+                        }
+                        .imgYzm{  
+                            #imgYzm{width:160px;}
+                            img{position: relative;top:8px;}
+                            a{line-height: 38px;}
+                        }
+                        .phoneYzm{  
+                            #phoneYzm{width:160px;}
+                            #getYzm{padding-left:0px;line-height: 38px;width: 100px;position:relative;left:18px;height:38px;color:#008842;background: #f7f7f7;text-align: center;border: 1px solid #e1e1e1;}
+                        }
+                        .check{margin-bottom: 0px;padding-left: 10px;
+                            #checked{width:12px;height:12px;}
+                            a{color:#008842;}
+                        }
+                        .reg{padding-left: 10px;
+                            #reg{color:#fff;background: #008842;}
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			img{
+				border: none;
+			}
+			body{
+				background:#F7F8F8;
+				color: #444;
+			}
+			ul,li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				color:black;
+			}
+			body,input,textarea{
+				font-size: 12px;
+				font-family: arial,verdana,"宋体";
+			}
+			
+			
+			
+			#w{
+				width:100%;
+				background: #f7f8f8;
+			}
+			#wrap{
+				width:1200px;
+				height:30px;
+				margin: 0 auto;
+				/*overflow: hidden;*/
+				box-sizing: border-box;
+				position:relative;
+			}
+			#wrap .fl{
+				float:left;
+			}
+			#wrap .fr{
+				float:right;
+			}
+			#wrap .fl>li,#wrap .fr>li{
+				float:left;
+				padding:0 10px;
+				line-height:30px;
+				
+			}
+			#wrap .fl li:hover a,#wrap .fr li:hover a{
+				color:#008842;	
+			}
+			/*#wrap li:hover .triangle{
+				transform: rotate(180deg);
+			}*/
+			#wrap .fl li:first-of-type:hover a{
+				color:black;
+			}
+			#wrap .fr li i{
+				display: inline-block;
+				width:18px;
+				height:18px;
+				margin-right: 5px;
+				vertical-align: middle;
+				background: url(../img/me.jpg) no-repeat 0px 0px;
+				/*background-position: 0 4px;*/
+			}
+			#wrap .fr #phone i{
+				background: url(../img/phone.jpg) no-repeat 0px 0px;
+			}
+			#wrap .fr #ka i{
+				background: url(../img/ka.jpg) no-repeat 0px 0px;
+			}
+			#wrap .fr #zhunren i{
+				background: url(../img/zhunren.jpg) no-repeat 0px 0px;
+			}
+			#wrap li span{
+				transition: all 0.2s ease-in;
+				display: inline-block;
+				width:8px;
+				height:4px;
+				vertical-align: middle;
+				margin-left: 5px;
+				background: url(../img/triangle.png) no-repeat 0px 0px;
+			}
+			#wrap li:hover span{
+				transform:rotate(-180deg);
+			}
+			#wrap li#me,li#phone,li#city{
+				position:relative;
+			}
+			#wrap li div.con{
+				position:absolute;
+				z-index:500;
+				top:30px;
+				left:0px;
+				background: #fff;
+				color:black;
+				padding: 0px 5px;
+				min-width:100px;
+				border:1px solid #008842;
+				display: none;
+			}
+			#wrap li:hover div.con{
+				display: block;
+			}
+			/********************搜索框**********************/
+			.search{width: 100%;height: 78px;background: #ccc;box-sizing: border-box;}
+			.fixed{position: fixed;top:0px;left:0px;z-index: 999999;width: 100%;height: 78px;background: rgba(120,120,120,0.5);box-sizing: border-box;}
+			.search .wrap{width: 1200px;height: 78px;padding-top:15px;margin:0 auto;box-sizing: border-box;}
+			.search .wrap .fl{float: left;}
+			.search .wrap .fl .logo{margin-right: 200px;display: inline-block;}
+			
+			.search .wrap .fl .sousuo{display: inline-block;vertical-align: top;}
+			.search .wrap .fl .sousuo .aimtxt{width:425px;
+				border:1px solid #008842;background: #e0e0e0;    
+				height: 28px;
+				float: left;
+			    line-height: 28px;
+			    padding: 0 10px;}
+			.search .wrap .fl .sousuo .searchBtn{
+				float: left;
+			    display: block;
+			    width: 81px;
+			    height: 28px;
+			    line-height: 28px;
+			    padding: 0;
+			    border: none;
+			    cursor: pointer;
+			    color: #fff;
+			    font-size: 14px;
+			    background: #008842;
+			}
+			.search .wrap .fl .sousuo p{
+				height:26px;
+				line-height: 26px;
+			}
+			.search .wrap .fl .sousuo p span{
+				padding-right:10px;
+				display: inline-block;
+			}
+			.search .wrap .fr{float: right;}
+			.search .wrap .fr dl{
+				position: relative;
+			}
+			.search .wrap .fr dl dt{
+				width: 170px;
+			    height: 28px;
+			    padding: 6px 0;
+			    line-height: 28px;
+			    text-align: center;
+			    font-size: 25px;
+			    border: 1px solid #008842;
+			    background: #fff;
+			    cursor: pointer;
+			}
+			.search .wrap .fr dl dt b{
+				display: inline-block;
+			    vertical-align: middle;
+			    width: 28px;
+			    height: 20px;
+			    margin-right: 10px;
+			    font-size: 12px;
+			    padding: 0;
+			    background: url(../img/header-img.png) no-repeat -112px 0;
+			}
+			.search .wrap .fr dl dt b i{
+				display: block;
+			    width: 24px;
+			    line-height: 12px;
+			    margin-right: 4px;
+			    text-align: center;
+			}
+			.search .wrap .fr dl dt span{
+				
+			}
+			.search .wrap .fr dl dd{
+				z-index: 88;
+			    display: none;
+			    position: absolute;
+			    top: 41px;
+			    right: 0;
+			    width: 380px;
+			    padding: 10px;
+			    background: #fff;
+			    border: 1px solid #007f4d;
+			}
+			.search .wrap .fr dl:hover dd{
+				display: block;
+			}
+			.search .wrap .fr dl dd p{
+				width: 380px;
+			    height: 120px;
+			    line-height: 120px;
+			    text-align: center;
+			    background: url(../img/none-bg-w190.jpg) no-repeat center #fff;
+			}
+			/***************banner***********************/
+			.banner{
+				width:100%;
+				height:500px;
+				overflow: hidden;
+				position: relative;
+				/*background: #008742;*/
+			}
+			.nav{
+				position: relative;
+				height:30px;
+				width: 1200px;
+				margin: 0 auto;
+			}
+			#menu{
+				width: 140px;
+				position: absolute;
+				z-index: 10000;
+				background: rgba(255, 255, 255, 0.9);
+			}
+			.nav .subnav{position: absolute;left:140px;top:0px;}
+			.nav .subnav div{
+				float: left;
+				width:140px;
+				text-align: center;
+				line-height: 30px;
+				color:#008842;
+				font-size: 18px;
+				font-weight: bold;	
+			}
+			#menu a{
+				background: #F7F8F8;
+				display: inline-block;
+				width:140px;
+				height:30px;
+				font-size:18px;
+				line-height: 30px;
+				color:#008742;
+				text-align: center;
+			}
+			#menuList{
+				display: none;
+			}
+			#menu:hover #menuList{
+				display: block;	
+			}
+			#menuList>li{
+				padding-left: 10px;
+				width: 140px;
+				box-sizing: border-box;
+				height: 30px;
+				line-height: 30px;
+				box-sizing: border-box;
+				/*position: relative;*/
+				text-align: left;
+			}
+			#menuList>li p{
+				transition:all 0.2s ease;
+				line-height: 30px;
+				width: 90%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			#menuList>li p b{
+				display: inline-block;
+				width:24px;
+				height:24px;
+				margin-right:10px;
+				margin-top: -3px;
+				background: url(../img/nav-icon.png) no-repeat 0 0;
+				vertical-align: middle;
+			}
+			#menuList>li p span{
+				line-height: 30px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#menuList>li p i{
+				display: none;
+				vertical-align: middle;
+			}
+			#menuList>li div{
+				position: absolute;
+				left:140px;
+				top:0px;
+				background: rgba(255, 255, 255, 0.9);
+				/*min-width: 100px;*/
+				width: 215px;
+				height: 400px;
+				box-sizing: border-box;
+				display: none;
+				border:1px solid #ccc;
+				padding:20px 20px 0 20px;
+			}
+			#menuList>li div img{
+				position: absolute;
+				left:0px;
+				bottom:0px;
+			}
+			#menuList>li:hover{
+				border: 1px solid #ccc;
+			}
+			#menuList>li:hover div{
+				display: block;
+			}
+			#menuList>li:hover p{
+				transform: translateX(10px);
+			}
+			#menuList>li:hover p i{
+				display: inline-block;
+			}
+			#menuList>li ul li{
+				min-width: 20px;
+				padding-right: 20px;
+				float: left;
+			}
+			.banner{
+				width: 100%;
+				height:500px;
+			}
+			.banner>img{
+				width: 100%;
+				height:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<!--header-->
+		<div id="w">
+			<div id="wrap">  
+				<ul class="fl">
+					<li><a href="###">欢迎光临易果生鲜</a></li>
+					<li><a href="###">配送到：</a></li>
+					<li id="city">
+						<a href="###">
+							北京市
+							<span class="triangle"></span>
+						</a>
+					</li>
+				</ul>
+				<ul class="fr">
+					<li><a id="login" href="###">[登录]</a></li>
+					<li><a id="reg" href="###">[注册]</a></li>
+					<li id="me">
+						<div class="tit">
+							<a href="###">
+								<i></i>
+								我的易果
+								<span class="triangle"></span>
+							</a>
+						</div>
+						<div class="con">
+							<ul>
+								<li><a href="###">我的订单</a></li>
+								<li><a href="###">我的优惠券</a></li>
+								<li><a href="###">我的收藏</a></li>
+								<li><a href="###">我的悠币</a></li>
+								<li><a href="###">我的退换货</a></li>
+								<li><a href="###">预存款查询</a></li>
+								<li><a href="###">立即查询</a></li>
+							</ul>
+						</div>
+						
+					</li>
+					<li id="phone">
+						<div class="tit">
+						<a href="###">
+							<i></i>
+							手机易果
+							<span class="triangle"></span>
+						</a>
+						</div>
+						<div class="con">
+							<a href="###"><img src="img/qrcode_app.jpg" /></a>
+							<p>扫一扫下载APP</p>
+							<a href="###"><img src="img/qrcode_wechat.jpg" /></a>
+							<p>易果生鲜微信</p>
+						</div>
+					</li>
+					<li id="ka">
+						<a href="###">
+							<i></i>
+							储值卡
+						</a>
+					</li>
+					<li id="zhunren">
+						<a href="###">
+							<i></i>
+							提货券入口
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-----------------搜索框-------------------->
+		<div class="search" id="searchDiv">
+			<div class="wrap">
+				<div class="fl">
+					<div class="logo">
+						<img src="img/logo.png"/>
+					</div>
+					
+					<div class="sousuo">
+						<input class="aimtxt" id="searchInput" type="search" placeholder="输入商品名/编号/拼音" />
+						<input class="searchBtn" type="submit" value="搜索" />
+						<p>
+							<span>美心月饼</span>
+							<span>华盛顿樱桃</span>
+							<span>澳大利亚脐橙</span>
+							<span>奇异果</span>
+							<span>小龙虾</span>
+							<span>谷饲</span>
+							<span>家佳康</span>
+							<span>三文鱼</span>
+							<span>贝类</span>
+							<span>鳕鱼</span>
+						</p>
+					</div>
+				</div>
+				<div class="fr">
+					<dl>
+						<dt><b><i>0</i></b><span>0.0</span></dt>
+						<dd>
+							<p>购物车中还没有商品，赶快选购吧</p>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		
+		<!--------------导航菜单--------------------->
+		<div class="nav">
+			<div id="menu">
+				<a href="###">全部商品分类</a>
+				<ul id="menuList">
+					
+				</ul>
+			</div>
+			<div class="subnav">
+				<div><a href="###">新品专区</a></div>
+				<div><a href="###">优质生活</a></div>
+				<div><a href="###">银行专区</a></div>
+				<div><a href="###">菜谱专栏</a></div>
+			</div>
+		</div>
+		<!--banner-->
+		<div class="banner">
+			<img src="img/9288692841980011.jpg" alt="" />
+		</div>
+	</body>
+</html>
+<script src="js/ajaxTools.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+function getId(id){
+	return document.getElementById(id);
+}
+function getTag(parentNode,tagName){
+	//console.log(arguments.length+","+arguments[0]+","+tagName)
+	if(arguments.length==1){
+		tagName=arguments[0];//这一句要放到下一句的前面，否则arguments将会改变
+		parentNode=document;
+	}
+	//console.log(parentNode+","+tagName)
+	return parentNode.getElementsByTagName(tagName);
+}
+function getClass(parentNode,class_name){
+	if(arguments.length==1){
+		tagName=arguments[0];
+		parentNode=document;
+	}
+	var allTag=parentNode.getElementsByTagName("*");
+	var arr=[];
+	for(let i=0;i<allTag.length;i++){
+		if(allTag[i].className==class_name){
+			arr.push(allTag[i]);
+		}
+	}
+	return arr;
+}
+
+
+/*******************搜索框的设置***************************/
+var searchInput=document.getElementById("searchInput");
+var searchDiv=document.getElementById("searchDiv");
+var initOffsetTop=searchDiv.offsetTop;
+console.log(initOffsetTop);
+	//onfocus背景为白色
+	searchInput.onfocus=function(){
+		searchInput.style.background="#fff";
+	}
+	//onblur背景为绿色
+	searchInput.onblur=function(){
+		searchInput.style.background="#e0e0e0";
+	}
+	//滚轮滚动到一定程度时固定定位(通过增删class实现)
+	function fixSearch(){
+		var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+		if(scrollTop>=initOffsetTop){
+			//searchDiv.className += " fixed";//会有很多的fixed
+			searchDiv.className = "search fixed";
+			//searchDiv.style.background="rgba(120,120,120,0.5)";//写到css中
+		}else{
+			searchDiv.className="search";
+			//searchDiv.style.background="rgba(120,120,120)";//写到css中
+		}
+	}
+//前面用过window.onscroll了，用事件监听
+window.addEventListener("scroll",fixSearch,false);
+/**********登录的点击***************/
+document.getElementById("login").onclick=function(){
+	window.location="html/login.html";
+}
+document.getElementById("reg").onclick=function(){
+	window.location="html/register.html";
+}
+
+my_ajax({
+	"url":"json/new_file.json",
+	"func":fn
+});
+var menuUl=document.getElementById("menuList");
+function fn(str){
+	//console.log(str);
+	let data=JSON.parse(str);
+	console.log(data);
+	let arrData=data.Catrgories;
+	console.log(arrData);
+	for(let i=0;i<arrData.length;i++){
+		//主要菜单列表
+		let oLi=document.createElement("li");
+		oLi.innerHTML="<p><b class='nav_icon'></b><span>"+arrData[i].CategoryName+"</span><i>&nbsp;&nbsp;&nbsp;&nbsp;&gt;</i></p>";
+		menuUl.appendChild(oLi);
+		//创建右边的显示区域
+		let oDiv=document.createElement("div");
+		oDiv.className="subMenu";
+		oLi.appendChild(oDiv);
+		//右边显示区域的头部
+		let oh3=document.createElement("h2");
+		oh3.innerHTML=arrData[i].CategoryName;
+		oDiv.appendChild(oh3);
+		//添加子菜单的内容
+		let arrSubData=arrData[i].SubCategory0;
+		//console.log(arrSubData);
+		let oSubUl=document.createElement("ul");
+		oDiv.appendChild(oSubUl);
+		for(let j=0;j<arrSubData.length;j++){
+			let oSubLi=document.createElement("li");
+			oSubLi.innerHTML=arrSubData[j].CategoryName;
+			oSubUl.appendChild(oSubLi);
+		}
+		//添加图片
+		let oImg=document.createElement("img");
+		//console.log(arrData[i].CategoryImageAd);
+		if(arrData[i].CategoryImageAd[0]){//即烹美食没有这一个
+			oImg.src=arrData[i].CategoryImageAd[0].Image;
+		}else{
+			oImg.src="";
+		}
+		oDiv.appendChild(oImg);
+	}
+	
+	var nav_icons=document.getElementsByClassName("nav_icon");
+	console.log(nav_icons);
+	for(let i=0;i<nav_icons.length;i++){
+		if(i<4){
+			nav_icons[i].style.backgroundPositionX=(-1*i*24)+"px";
+		}else if(i==4){
+			nav_icons[i].style.backgroundPositionX="0px";
+		}else{
+			nav_icons[i].style.backgroundPositionX=(-1*(i-1)*24)+"px";
+		}
+		
+	}
+}
+
+</script>

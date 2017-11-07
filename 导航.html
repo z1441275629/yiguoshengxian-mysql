@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{padding: 0;margin: 0;}
+			ul,li{list-style: none;}
+			#menu{
+				width: 160px;
+			}
+			#menu a{
+				display: inline-block;
+				width:160px;
+				color:#008742;
+				text-align: center;
+			}
+			#menuList{
+				display: none;
+			}
+			#menu:hover #menuList{
+				display: block;	
+			}
+			#menuList>li{
+				padding-left: 10px;
+				width: 160px;
+				box-sizing: border-box;
+				height: 30px;
+				line-height: 30px;
+				box-sizing: border-box;
+				/*position: relative;*/
+				text-align: left;
+			}
+			#menuList>li p{
+				transition:all 0.2s ease;
+				line-height: 30px;
+				width: 90%;
+				height: 100%;
+				overflow: hidden;
+			}
+
+			#menuList>li p b{
+				display: inline-block;
+				width:24px;
+				height:24px;
+				margin-right:10px;
+				margin-top: -3px;
+				background: url(img/nav-icon.png) no-repeat 0 0;
+				vertical-align: middle;
+			}
+			#menuList>li p span{
+				line-height: 30px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#menuList>li p i{
+				display: none;
+				vertical-align: middle;
+			}
+			#menuList>li div{
+				position: absolute;
+				left:160px;
+				top:0px;
+				/*min-width: 100px;*/
+				width: 215px;
+				height: 500px;
+				box-sizing: border-box;
+				display: none;
+				opacity: 0.8;
+				border:1px solid #ccc;
+				padding:20px 20px 0 20px;
+			}
+			#menuList>li div img{
+				position: absolute;
+				left:0px;
+				bottom:0px;
+			}
+			#menuList>li:hover{
+				border: 1px solid #ccc;
+			}
+			#menuList>li:hover div{
+				display: block;
+			}
+			#menuList>li:hover p{
+				transform: translateX(10px);
+			}
+			#menuList>li:hover p i{
+				display: inline-block;
+			}
+			#menuList>li ul li{
+				min-width: 20px;
+				padding-right: 20px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			<a href="###">全部商品分类</a>
+			<ul id="menuList">
+				
+			</ul>
+		</div>
+	</body>
+</html>
+<script src="js/ajaxTools.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	my_ajax({
+		"url":"json/new_file.json",
+		"func":fn
+	});
+	var menuUl=document.getElementById("menuList");
+	function fn(str){
+		//console.log(str);
+		let data=JSON.parse(str);
+		console.log(data);
+		let arrData=data.Catrgories;
+		console.log(arrData);
+		for(let i=0;i<arrData.length;i++){
+			//主要菜单列表
+			let oLi=document.createElement("li");
+			oLi.innerHTML="<p><b></b><span>"+arrData[i].CategoryName+"</span><i>&nbsp;&nbsp;&nbsp;&nbsp;&gt;</i></p>";
+			menuUl.appendChild(oLi);
+			//创建右边的显示区域
+			let oDiv=document.createElement("div");
+			oDiv.className="subMenu";
+			oLi.appendChild(oDiv);
+			//右边显示区域的头部
+			let oh3=document.createElement("h2");
+			oh3.innerHTML=arrData[i].CategoryName;
+			oDiv.appendChild(oh3);
+			//添加子菜单的内容
+			let arrSubData=arrData[i].SubCategory0;
+			//console.log(arrSubData);
+			let oSubUl=document.createElement("ul");
+			oDiv.appendChild(oSubUl);
+			for(let j=0;j<arrSubData.length;j++){
+				let oSubLi=document.createElement("li");
+				oSubLi.innerHTML=arrSubData[j].CategoryName;
+				oSubUl.appendChild(oSubLi);
+			}
+			//添加图片
+			let oImg=document.createElement("img");
+			console.log(arrData[i].CategoryImageAd);
+			if(arrData[i].CategoryImageAd[0]){//即烹美食没有这一个
+				oImg.src=arrData[i].CategoryImageAd[0].Image;
+			}else{
+				oImg.src="";
+			}
+			oDiv.appendChild(oImg);
+		}
+	}
+</script>

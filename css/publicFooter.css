@@ -1,0 +1,130 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+img{
+	border: none;
+}
+body{
+	background:#F7F8F8;
+	color: #444;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+body,input,textarea{
+	font-size: 12px;
+	font-family: arial,verdana,"宋体";
+}
+.footer_service{
+	width: 100%;
+	height: 100px;
+	background: #e0e0e0;
+	box-sizing: border-box;
+	padding: 29px 0px;
+}
+.footer_service .wrap{
+	width: 1200px;
+	height: ;
+	margin: 0 auto;
+}
+.footer_service .wrap ul{
+	/*margin-left: 50px;*/
+}
+.footer_service .wrap ul li{
+	float: left;
+	width:250px;
+	box-sizing:border-box ;
+	height: 42px;
+	padding-left: 55px;
+	margin-left: 50px;
+	background: url(../img/footer_service_icon.png) no-repeat;
+	background-position:0 0;/*用js对其他的进行具体的定位设置*/
+}
+.footer_service .wrap ul li b{
+	display: list-item;
+	font-size: 18px;
+	font-weight: normal;
+	color: #007f4d;
+	border-left: 1px solid #a6a6a6;
+	padding-left: 15px;
+}
+.footer_service .wrap ul li span{
+	display: list-item;
+	font-weight: normal;
+	border-left: 1px solid #a6a6a6;
+	padding-left: 15px;
+}
+
+.footer .wrap{
+	width: 1200px;
+	margin: 50px auto 0 auto;
+	box-sizing: border-box;
+	background:#F7F8F8;
+}
+.footer .wrap dl{
+	float:left;
+	width: 190px;
+	box-sizing: border-box;
+	margin-left: 50px;
+}
+.footer .wrap dl dt{
+	background: url(../img/footer_icon.png) no-repeat 0 0;
+	font-size: 14px;
+	height: 23px;
+	line-height: 23px;
+	padding-left: 40px;/*text-indent:40px;*/
+}
+.footer .wrap dl dd{
+	height: 110px;
+	line-height: 22px;
+	margin: 15px 0 0 13px;
+	padding-left: 20px;
+	border-left: 1px dashed #a8a8a8;
+}
+.footer .wrap dl dd a:hover{
+	text-decoration: underline;
+	color: #008842;
+}
+.service{
+	clear: both;
+	width: 1200px;
+	padding: 60px 0 20px 0;
+	text-align:center;
+	color: #008842;
+	line-height: 22px;
+}
+
+.copyright{
+	padding-bottom: 10px;
+}
+.copyright p{
+	text-align: center;
+	color: #f0c000;
+	line-height: 22px;
+}
+.copyright p span{
+	display: inline-block;
+	height:20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.copyright p>a>img{
+	margin: 0 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.copyright p span a{
+	float: left;
+	position: relative;
+	color: #939393;
+	margin-left: 5px;
+	display: inline-block;
+	height:20px;
+	line-height: 20px;
+	vertical-align: middle;
+}

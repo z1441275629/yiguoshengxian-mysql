@@ -1,0 +1,125 @@
+.shoppingcar {
+  width: 100%; }
+  .shoppingcar .wrap {
+    width: 1200px;
+    margin: 0 auto; }
+    .shoppingcar .wrap .shopHead {
+      width: 1200px;
+      overflow: hidden;
+      border-bottom: 3px solid green; }
+      .shoppingcar .wrap .shopHead p {
+        float: left;
+        background: url(../img/bg_cart.png) no-repeat 0px 0px;
+        width: 220px;
+        height: 38px; }
+      .shoppingcar .wrap .shopHead span {
+        line-height: 38px; }
+      .shoppingcar .wrap .shopHead a {
+        float: right;
+        line-height: 38px; }
+    .shoppingcar .wrap table {
+      width: 1160px;
+      margin: 10px 20px; }
+      .shoppingcar .wrap table #trHead {
+        line-height: 38px;
+        text-align: center;
+        height: 38px; }
+      .shoppingcar .wrap table tr {
+        line-height: 38px;
+        text-align: center;
+        height: 104px; }
+      .shoppingcar .wrap table .check {
+        text-align: center;
+        width: 50px; }
+      .shoppingcar .wrap table .img {
+        width: 102px; }
+        .shoppingcar .wrap table .img img {
+          width: 82px;
+          height: 82px;
+          margin-top: 10px; }
+      .shoppingcar .wrap table .descript {
+        width: 258px;
+        padding-left: 10px;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .shoppingcar .wrap table .youBi {
+        width: 94px; }
+      .shoppingcar .wrap table .price {
+        width: 120px; }
+      .shoppingcar .wrap table .num {
+        width: 130px; }
+        .shoppingcar .wrap table .num div {
+          width: 94px;
+          margin: 0 auto; }
+        .shoppingcar .wrap table .num div * {
+          float: left; }
+        .shoppingcar .wrap table .num .minus {
+          border: 1px solid #ccc;
+          cursor: pointer;
+          width: 24px;
+          height: 18px;
+          display: inline-block;
+          text-align: center;
+          line-height: 18px; }
+        .shoppingcar .wrap table .num .plus {
+          border: 1px solid #ccc;
+          cursor: pointer;
+          width: 24px;
+          height: 18px;
+          display: inline-block;
+          text-align: center;
+          line-height: 18px; }
+        .shoppingcar .wrap table .num .numInput {
+          width: 40px;
+          border: 1px solid #ccc;
+          text-align: center;
+          height: 18px;
+          display: inline-block; }
+      .shoppingcar .wrap table .sum {
+        width: 130px; }
+      .shoppingcar .wrap table .specification {
+        width: 130px; }
+      .shoppingcar .wrap table .operate {
+        width: 130px; }
+        .shoppingcar .wrap table .operate a {
+          display: block; }
+    .shoppingcar .wrap .carFooter {
+      overflow: hidden; }
+      .shoppingcar .wrap .carFooter .fl {
+        float: left;
+        line-height: 38px; }
+        .shoppingcar .wrap .carFooter .fl label {
+          width: 40px;
+          padding-left: 40px; }
+          .shoppingcar .wrap .carFooter .fl label input {
+            width: 14px;
+            height: 14px;
+            margin-bottom: -2px; }
+        .shoppingcar .wrap .carFooter .fl a {
+          display: inline-block;
+          padding-left: 30px; }
+        .shoppingcar .wrap .carFooter .fl a:hover {
+          color: #008842; }
+      .shoppingcar .wrap .carFooter .fr {
+        float: right; }
+        .shoppingcar .wrap .carFooter .fr span b {
+          display: inline-block;
+          margin-right: 20px;
+          font-weight: normal;
+          color: #ff5317;
+          font-size: 18px; }
+        .shoppingcar .wrap .carFooter .fr a {
+          display: inline-block;
+          width: 94px;
+          height: 38px;
+          background: #ff5317;
+          color: #fff;
+          line-height: 38px;
+          text-align: center;
+          margin-right: 20px;
+          font-weight: bolder;
+          font-size: 18px; }
+
+/*# sourceMappingURL=shoppingCar.css.map */

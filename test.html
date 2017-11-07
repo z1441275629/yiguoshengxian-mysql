@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script src="js/ajaxTools.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	my_ajax({
+		url:"PHP/oderByPrice.php",
+		sendContent:"order=1",
+		func:function(str){
+			console.log(eval(str));
+		}
+	})
+	my_ajax({
+		url:"PHP/searchKeyWord.php",
+		sendContent:"keyWord=精选",
+		func:function(str){
+			console.log(eval(str));
+		}
+	})
+	
+	
+	//$review_log = addslashes(json_encode($review_log));
+</script>
